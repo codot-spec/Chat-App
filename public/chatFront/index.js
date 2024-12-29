@@ -68,7 +68,7 @@ function scrollToBottom() {
 }
 
 // Fetch messages every 5 seconds
-setInterval(fetchMessages, 5000);
+setInterval(fetchMessages, 2000);
 
 // Event listener for sending a message
 document.getElementById('chatForm').addEventListener('submit', sendMessage);
