@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Room</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="chat-container">
+        <h1>Group Chat</h1>
+        <div class="messages-container">
+            <ul class="message-list"></ul>
+        </div>
+        <form id="chatForm">
+            <textarea id="message" placeholder="Type your message"></textarea>
+            <button type="submit">Send</button>
+        </form>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.8/axios.min.js"></script>
+    <script src="./index.js"></script>
+</body>
+</html>

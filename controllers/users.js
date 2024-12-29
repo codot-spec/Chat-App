@@ -28,8 +28,8 @@ exports.signup = async (req, res ) => {
 };
 
 // Generate JWT token (with isPremium field included)
-exports.generateAccessToken = (id, name, isPremium) => {
-  return jwt.sign({ userId: id, name: name, isPremium }, 'secretkey');
+exports.generateAccessToken = (id, name) => {
+  return jwt.sign({ userId: id, name: name}, 'secretkey');
 };
 
 exports.login = async (req, res, next) => {
@@ -51,7 +51,7 @@ exports.login = async (req, res, next) => {
       // Password matches
 
       // Generate the JWT token inside this function
-      const token = userController.generateAccessToken(user.id, user.name, user.isPremium);  // <-- This line is the fix
+      const token = userController.generateAccessToken(user.id, user.name);  // <-- This line is the fix
 
       return res.status(200).json({
         message: 'User login successful',
@@ -66,3 +66,5 @@ exports.login = async (req, res, next) => {
     return res.status(500).json({ message: 'Server error' });
   }
 };
+
+

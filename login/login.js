@@ -8,9 +8,10 @@ async function SignIn(event){
       };
       console.log(loginDetails);
       const response = await  axios.post("http://localhost:3000/user/sign-in", loginDetails)
-        alert(response.data.message)
+       
+      alert(response.data.message)
         localStorage.setItem('token',response.data.token);
-        
+        window.location.href = "../chatFront/index.html"
      }
     catch(err){
       document.body.innerHTML += `<div style="color:red;"> ${err.message} <div> `
