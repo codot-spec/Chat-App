@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 
 const cors = require('cors');
-
+const path = require('path');
 const sequelize = require('./util/database');
 const User = require('./models/users');
 const Message = require('./models/chatFront');
@@ -12,6 +12,8 @@ const chatRoutes = require('./routes/chatFront')
 
 app.use(cors());
 app.use(express.json());
+
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/user', userRoutes);
 app.use('/chat',chatRoutes)
