@@ -17,8 +17,9 @@ exports.signup = async (req, res ) => {
 
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    const newUser = await User.create({ name, email, phonenumber, password: hashedPassword});
-    res.status(201).json(newUser);
+   const newUser = await User.create({ name, email, phonenumber, password: hashedPassword});
+   console.log(newUser); 
+  return res.status(201).json({message: "Successfully Signed Up"});
   } catch (err) {
     console.error("Error in adding user:", err);
     res.status(500).json({ message: "Failed to add user" });

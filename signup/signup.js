@@ -11,16 +11,15 @@ async function SignUp(event){
     };
 
     console.log(userDetails);
-    const response = await axios.post("http://localhost:3000/user/sign-up", userDetails) // Corrected route path
+    const response = await axios.post("http://localhost:3000/user/sign-up", userDetails)
     if(response.status === 201){
-      // window.location.href = "../login/login.html"
-      console.log('success')
+      alert(response.data.message)
     }
-    else{
-      throw new Error("Failed to signup")
+    else if (response.status === 403){
+      alert(response.data.message)
     }
   }
   catch(err){
-    document.body.innerHTML += `<div style="color:red;">${err} <div> `
+    document.body.innerHTML += `<div style="color:red;">${err.message} <div> `
   }
 }
