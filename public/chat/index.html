@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Room</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <button id="profile" onclick="profile()">Profile</button>
+    <div class="container">
+        <!-- Left Section: Contacts -->
+        <div class="chat-left">
+            <div class="search">
+                <input type="text" id="searchInput" placeholder="Search Contacts...">
+            </div>
+            <ul class="contacts" id="groups">
+                <!-- Group List will be dynamically populated here -->
+            </ul>
+        </div>
+
+        <!-- Right Section: Chat Area -->
+        <div class="chat-right">
+            <div class="chat-header">
+                <h2 id="groupNameHeading">Select Group</h2>
+                <span class="action-menu-btn" id="actionMenuBtn">...</span>
+                <ul class="action-menu" id="actionMenu">
+                    <li id="viewGroupMembers">View Members</li>
+                    <li id="createGroup">Create Group</li>
+                    <li id="addToGroup">Add to Group</li>
+                    <li id="deleteFromGroup">Delete From Group</li>
+                    <li id="deleteGroup">Delete Group</li>
+                    <li id="logout">Log Out</li>
+                </ul>
+            </div>
+            <div class="msg-box" id="chatBoxBody">
+                <!-- Messages will be dynamically populated here -->
+            </div>
+            <div class="input-area">
+                <input type="file" id="fileInput" />
+                <textarea id="messageInput" placeholder="Type your message..." rows="3"></textarea>
+                <button id="sendBtn">Send</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.8/axios.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="./index.js"></script>
+</body>
+</html>
